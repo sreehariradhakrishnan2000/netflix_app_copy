@@ -21,14 +21,14 @@ Build a full-stack Netflix-like application with React frontend, Node.js/Express
 - [x] Add middleware for authentication
 
 ### 3. Frontend Development
-- [ ] Install frontend dependencies (axios, react-router-dom, redux or context for state)
-- [ ] Set up routing (home, browse, movie details, search, profile)
-- [ ] Create authentication components (login, register)
-- [ ] Build movie browsing components (hero banner, movie rows)
+- [x] Install frontend dependencies (axios, react-router-dom, redux or context for state)
+- [x] Set up routing (home, browse, movie details, search, profile)
+- [x] Create authentication components (login, register)
+- [x] Build movie browsing components (hero banner, movie rows)
 - [ ] Implement search functionality
 - [ ] Create movie detail page with trailer
 - [ ] Add watchlist management
-- [ ] Style with CSS/SCSS to match Netflix UI
+- [x] Style with CSS/SCSS to match Netflix UI
 
 ### 4. Integration & Testing
 - [ ] Connect frontend to backend APIs

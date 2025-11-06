@@ -1,0 +1,263 @@
+/* Netflix-like CSS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #141414;
+  color: white;
+}
+
+.App {
+  min-height: 100vh;
+  background-color: #141414;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.nav-logo {
+  height: 45px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu li {
+  margin: 0 20px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-menu a:hover {
+  color: #e50914;
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.hero-banner > div {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+.hero-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-banner p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.hero-banner button {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.hero-banner button:hover {
+  background-color: #f40612;
+}
+
+/* Movie Row */
+.movie-row {
+  margin: 20px 0;
+  padding: 0 50px;
+}
+
+.movie-row h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.movie-list {
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.movie-list::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-item {
+  position: relative;
+  min-width: 200px;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+.movie-item:hover {
+  transform: scale(1.05);
+}
+
+.movie-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 20px 10px 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.movie-item:hover .movie-info {
+  opacity: 1;
+}
+
+.movie-info h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.movie-info button {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* Movie Detail */
+.movie-detail {
+  padding: 50px;
+  background-color: #141414;
+  min-height: 100vh;
+}
+
+.movie-detail h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.movie-detail p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.trailer {
+  margin-top: 30px;
+}
+
+.trailer h2 {
+  margin-bottom: 20px;
+}
+
+/* Forms */
+form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 8px;
+}
+
+form input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: white;
+  font-size: 1rem;
+}
+
+form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #f40612;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-banner {
+    padding: 0 20px;
+  }
+
+  .hero-banner h1 {
+    font-size: 2rem;
+  }
+
+  .movie-row {
+    padding: 0 20px;
+  }
+
+  .movie-item {
+    min-width: 150px;
+  }
+
+  .movie-item img {
+    height: 225px;
+  }
+}
