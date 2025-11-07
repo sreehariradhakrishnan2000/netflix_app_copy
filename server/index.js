@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const { Sequelize } = require('sequelize');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
@@ -11,13 +11,23 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/netflix_clone', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.log(err));
+// PostgreSQL connection
+const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://username:password@localhost:5432/netflix_clone', {
+  dialect: 'postgres',
+  logging: false,
+});
+
+sequelize.authenticate()
+  .then(() => console.log('PostgreSQL connected'))
+  .catch(err => console.log('PostgreSQL connection error:', err));
+
+// Sync database
+sequelize.sync()
+  .then(() => console.log('Database synced'))
+  .catch(err => console.log('Database sync error:', err));
+
+// Export sequelize for models
+module.exports.sequelize = sequelize;
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));

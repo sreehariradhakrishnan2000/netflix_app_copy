@@ -40,7 +40,7 @@ router.get('/search/:query', async (req, res) => {
 // Get user's watchlist (requires auth)
 router.get('/watchlist', auth, async (req, res) => {
   try {
-    const user = await require('../models/User').findById(req.user.id);
+    const user = await require('../models/User').findByPk(req.user.id);
     res.json(user.watchlist);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch watchlist' });
@@ -51,11 +51,11 @@ router.get('/watchlist', auth, async (req, res) => {
 router.post('/watchlist', auth, async (req, res) => {
   try {
     const { movieId, title, poster_path } = req.body;
-    const user = await require('../models/User').findById(req.user.id);
+    const user = await require('../models/User').findByPk(req.user.id);
     if (user.watchlist.some(item => item.movieId === movieId)) {
       return res.status(400).json({ error: 'Movie already in watchlist' });
     }
-    user.watchlist.push({ movieId, title, poster_path });
+    user.watchlist.push({ movieId, title, poster_path, addedAt: new Date() });
     await user.save();
     res.json(user.watchlist);
   } catch (err) {
@@ -66,7 +66,7 @@ router.post('/watchlist', auth, async (req, res) => {
 // Remove from watchlist (requires auth)
 router.delete('/watchlist/:movieId', auth, async (req, res) => {
   try {
-    const user = await require('../models/User').findById(req.user.id);
+    const user = await require('../models/User').findByPk(req.user.id);
     user.watchlist = user.watchlist.filter(item => item.movieId !== parseInt(req.params.movieId));
     await user.save();
     res.json(user.watchlist);

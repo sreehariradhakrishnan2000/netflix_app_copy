@@ -42,6 +42,15 @@ Build a full-stack Netflix-like application with React frontend, Node.js/Express
 - [ ] Set up production environment
 - [ ] Document setup and usage
 
+## 6. Switch Database to PostgreSQL
+- [x] Update server/package.json: Remove mongoose, add sequelize and pg
+- [x] Modify server/index.js: Establish PostgreSQL connection using Sequelize
+- [x] Refactor server/models/User.js: Define User model with Sequelize (watchlist as JSON column)
+- [x] Update server/routes/auth.js: Change queries to Sequelize
+- [x] Update server/routes/movies.js: Change watchlist queries to Sequelize
+- [x] Install new dependencies (npm install in server)
+- [x] Update environment variables for PostgreSQL (DATABASE_URL)
+
 ## Notes
 - Use TMDB API for movie data (requires API key)
 - Implement JWT for authentication
