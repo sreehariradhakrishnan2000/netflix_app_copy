@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  background-color: #141414;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.home {
+  padding-bottom: 50px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #000;
+}
+
+.logo {
+  color: #e50914;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.nav-buttons a {
+  margin-right: 20px;
+  font-size: 14px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.nav-buttons button {
+  border: none;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.join {
+  background-color: #e50914;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.signin {
+  background-color: transparent;
+  border: 1px solid #999;
+  color: #fff;
+}
+
+/* Content */
+.content {
+  padding: 40px;
+}
+
+.content h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  color: #999;
+  max-width: 700px;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+/* Categories */
+.category {
+  margin-bottom: 40px;
+}
+
+.category h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+/* Movie Rows */
+.row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Movie Card */
+.card {
+  position: relative;
+  min-width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: scale(1.08);
+}
+
+.card .badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #e50914;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.card p {
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center;
+}

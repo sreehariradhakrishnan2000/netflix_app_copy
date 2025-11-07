@@ -1,6 +1,11 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, Sequelize } = require('sequelize');
 const bcrypt = require('bcryptjs');
-const sequelize = require('../index').sequelize; // Import sequelize instance
+
+// Create sequelize instance
+const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://username:password@localhost:5432/netflix_clone', {
+  dialect: 'postgres',
+  logging: false,
+});
 
 const User = sequelize.define('User', {
   id: {

@@ -9,7 +9,7 @@ const app = express();
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '10mb' })); // Increase limit for JSON parsing
 
 // PostgreSQL connection
 const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://username:password@localhost:5432/netflix_clone', {
@@ -19,17 +19,11 @@ const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://username
 
 sequelize.authenticate()
   .then(() => console.log('PostgreSQL connected'))
-  .then(() => sequelize.sync())
-  .then(() => console.log('Database synced'))
   .catch(err => console.log('PostgreSQL connection error:', err));
 
-// Sync database
 sequelize.sync()
   .then(() => console.log('Database synced'))
   .catch(err => console.log('Database sync error:', err));
-
-// Export sequelize for models
-module.exports.sequelize = sequelize;
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));

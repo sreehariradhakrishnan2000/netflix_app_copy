@@ -48,8 +48,10 @@ Build a full-stack Netflix-like application with React frontend, Node.js/Express
 - [x] Refactor server/models/User.js: Define User model with Sequelize (watchlist as JSON column)
 - [x] Update server/routes/auth.js: Change queries to Sequelize
 - [x] Update server/routes/movies.js: Change watchlist queries to Sequelize
-- [x] Install new dependencies (npm install in server)
-- [x] Update environment variables for PostgreSQL (DATABASE_URL)
+- [ ] Install new dependencies (npm install in server)
+- [ ] Update environment variables for PostgreSQL (DATABASE_URL)
+- [ ] Test the application with PostgreSQL (currently getting 500 error on watchlist endpoint)
+- [ ] Fix JSON parsing error on POST /api/auth/register endpoint due to Express 5 body parsing issue
 
 ## Notes
 - Use TMDB API for movie data (requires API key)
