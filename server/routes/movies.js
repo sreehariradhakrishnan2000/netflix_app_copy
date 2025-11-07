@@ -17,16 +17,6 @@ router.get('/trending', async (req, res) => {
   }
 });
 
-// Get movie details
-router.get('/:id', async (req, res) => {
-  try {
-    const response = await axios.get(`${TMDB_BASE_URL}/movie/${req.params.id}?api_key=${TMDB_API_KEY}&append_to_response=videos`);
-    res.json(response.data);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch movie details' });
-  }
-});
-
 // Search movies
 router.get('/search/:query', async (req, res) => {
   try {
@@ -44,6 +34,16 @@ router.get('/watchlist', auth, async (req, res) => {
     res.json(user.watchlist);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch watchlist' });
+  }
+});
+
+// Get movie details
+router.get('/:id', async (req, res) => {
+  try {
+    const response = await axios.get(`${TMDB_BASE_URL}/movie/${req.params.id}?api_key=${TMDB_API_KEY}&append_to_response=videos`);
+    res.json(response.data);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch movie details' });
   }
 });
 

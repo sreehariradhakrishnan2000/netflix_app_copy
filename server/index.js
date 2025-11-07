@@ -19,6 +19,8 @@ const sequelize = new Sequelize(process.env.DATABASE_URL || 'postgres://username
 
 sequelize.authenticate()
   .then(() => console.log('PostgreSQL connected'))
+  .then(() => sequelize.sync())
+  .then(() => console.log('Database synced'))
   .catch(err => console.log('PostgreSQL connection error:', err));
 
 // Sync database
